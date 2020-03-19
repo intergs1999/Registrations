@@ -1,9 +1,13 @@
+<?php
+  session_start();
+ ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Registration</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <form class="" action="" method="post">
@@ -56,15 +60,21 @@
     <?php
       if (isset($_POST["Submit"])) {
         // code...
-        session_start();
-        $name=$_POST["name"];
-        $email=$_POST["email"];
-        $password=$_POST["password"];
-        $_SESSION["name"]=$name;
-        $_SESSION["email"]=$email;
-        $_SESSION["password"]=$password;
+
+         $name=$_POST["name"];
+         $email=$_POST["email"];
+         $password=$_POST["password"];
+        // $_SESSION["name"]=$name;
+        // $_SESSION["email"]=$email;
+        // $_SESSION["password"]=$password;
         if (!empty($name) and !empty($email) and !empty($password)) {
           // code...
+//           $name=$_POST["name"];
+//           $email=$_POST["email"];
+//           $password=$_POST["password"];
+          $_SESSION["name"]=$name;
+          $_SESSION["email"]=$email;
+          $_SESSION["password"]=$password;
           header("Location:login.php");
         }else {
           print("Please fill in the blank spaces");
